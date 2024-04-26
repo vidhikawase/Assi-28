@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inc and Dec</title>
+    <style>
+        .Phone{
+            height: 150px;
+
+        }
+
+        .img {
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .heading {
+            font-weight: bold;
+            font-size: 20px;
+            padding-left: 10px;
+        }
+
+        .dis {
+            font-size: 18px;
+            padding-left: 10px;
+        }
+
+        .Del {
+            color: red;
+        }
+        .qty{
+            padding-left: 10px;
+        }
+        .container {
+            width: 300px;
+            display: block;
+            margin: 20px auto;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px 10px gray;
+            margin-top: 50px;
+            background-color: beige;
+        }
+
+        .plus-minus {
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .quantity {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quantity-text {
+            font-size: 20px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .btn{
+            display: block;
+            margin: 20px auto;
+            font-size: 18px;
+            background-color: black;
+            color: white;
+            border-radius: 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .card-container{
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="container">
+            <div class="img">
+                <img src="sam.jpeg" alt="Phone" class="Phone">
+            </div>
+            <hr>
+            <p class="heading">Samsung</p>
+            <p class="dis">Samsung is a professional renowned for its exceptional image quality,Display,Features.
+            </p>
+            <hr>
+            <p class="qty">Price :- &nbsp;<Del class="Del"> ₹1,00,000/-</Del>&nbsp;&nbsp;&nbsp;₹89,999/-</p>
+            <div class="quantity">
+                <img src="minus.png" alt="minus" class="plus-minus" id="minus" onclick="Decrement()" >
+                <span class="quantity-text" id="QuantityText">1</span>
+                <img src="plus.png" alt="plus" class="plus-minus" id="plus" onclick="Increment()">
+            </div>
+    
+            <p class="qty" id="show-quantity"> 1 x 89,999</p>
+            <p class="qty" id="show-total">Total = 89,999</p>
+            <hr>
+            <Button type="button" class="btn">Buy Now</Button>
+        </div>
+    
+    
+        <div class="container">
+            <div class="img">
+                <img src="redmi.jpeg" alt="Redmi" class="Phone">
+            </div>
+            <hr>
+            <p class="heading"> Redmi</p>
+            <p class="dis">Redmi  is the latest smart phone from Apple which comes with a lot of features and capabilities.
+            </p>
+            <hr>
+            <p class="qty">Price :- &nbsp;<Del class="Del"> ₹45009/-</Del>&nbsp;&nbsp;&nbsp;₹40000/-</p>
+            <div class="quantity">
+                <img src="minus.png" alt="minus" class="plus-minus" id="minus" onclick="Decrement()" >
+                <span class="quantity-text" id="QuantityText">1</span>
+                <img src="plus.png" alt="plus" class="plus-minus" id="plus" onclick="Increment()">
+            </div>
+    
+            <p class="qty" id="show-quantity"> 1 x 40,000</p>
+            <p class="qty" id="show-total">Total = 40,000</p>
+            <hr>
+            <Button type="button" class="btn">Buy Now</Button>
+        </div>
+
+        
+    
+    
+    
+    </div>
+
+
+    
+    <script>
+        function Increment()
+        {
+            const QuantityText = document.getElementById('QuantityText');
+            let quantity = parseInt(QuantityText.innerText);
+
+            if( QuantityText.innerText < 10)
+            {
+                QuantityText.innerText = ++ quantity ;
+            }
+            else
+            {
+                alert('Maximum Limit Reached!');
+            }
+
+            const  show_quantity = document.getElementById("show-quantity");
+             show_quantity.innerHTML = `${parseInt(QuantityText.innerText)} x 69,999`;
+
+             const  total = document.getElementById("show-total")
+              total.innerHTML = Total = `${69,999 * parseInt(QuantityText.innerText)}`;
+        }
+
+        function Decrement()
+        {
+            const QuantityText = document.getElementById('QuantityText');
+            let quantity = parseInt(QuantityText.innerText);
+            
+            if( QuantityText.innerText > 1)
+            {
+                QuantityText.innerText =  -- quantity 
+            }
+            else
+            {
+                alert('Minimum Limit Reached!');
+            }
+
+            const  show_quantity = document.getElementById("show-quantity");
+             show_quantity.innerHTML = `${parseInt(QuantityText.innerText)} x 69,999`;
+
+             const  total = document.getElementById("show-total")
+              total.innerHTML = Total = `${69,999 * parseInt(QuantityText.innerText)}`;
+            
+        }
+    </script>
+</body>
+
+</html>
